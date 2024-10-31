@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slide Show</title>
     <style>
-         .container{
+        .container {
             width: fit-content;
-            margin:50px auto;
+            margin: 50px auto;
             position: relative;
         }
-        .image{
+
+        .image {
             height: 300px;
             width: 500px;
             display: block;
@@ -18,32 +20,70 @@
             object-fit: cover;
             border-radius: 20px;
         }
-        .ico-action{
+
+        .ico-action {
             height: 60px;
             position: absolute;
             top: 40%;
             cursor: pointer;
             transition: 0.5s;
         }
-        .ico-left{
-            left: 0;  
+
+        .ico-left {
+            left: 0;
         }
-        .ico-left:hover{
+
+        .ico-left:hover {
             transform: scale(0.8) translateX(-10px);
         }
-        .ico-right{
+
+        .ico-right {
             right: 0;
         }
-        .ico-right:hover{
+
+        .ico-right:hover {
             transform: scale(0.8) translateX(10px);
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <img src="./image/tiger.jpg" class="image">
-        <img src="left-arrow.png" class= "ico-action ico-left" onclick="prev()"/>
-        <img src="right-arrow.png" class= "ico-action ico-right" onclick="next()"/>
+        <img src="./image/tiger.jpg" class="image" id="slide">
+        <img src="left-arrow.png" class="ico-action ico-left" onclick="prev()" />
+        <img src="right-arrow.png" class="ico-action ico-right" onclick="next()" />
     </div>
+
+    <script>
+        const images = ["./image/deer.avif", "./image/dinasour.avif", "./image/elephant.avif", "./image/zebra.avif", "./image/kangaroo.avif", "./image/monkey.avif"];
+        let index = 0;
+        const slide = document.getElementById('slide');
+
+
+        function next() {
+            if (index < images.length - 1) {
+                index++;
+            }
+            else {
+                index = 0;
+            }
+
+            slide.src = images[index]
+        }
+
+        function prev() {
+            if (index > 0) {
+                index--;
+            }
+            else {
+                index = images.length - 1;
+            }
+            slide.src = images[index]
+        }
+
+
+
+    </script>
 </body>
+
 </html>
