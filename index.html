@@ -5,18 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slide Show</title>
     <style>
+         .container{
+            width: fit-content;
+            margin:50px auto;
+            position: relative;
+        }
         .image{
             height: 300px;
             width: 500px;
             display: block;
             margin: 50px auto;
+            object-fit: cover;
             border-radius: 20px;
+        }
+        .ico-action{
+            height: 60px;
+            position: absolute;
+            top: 40%;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .ico-left{
+            left: 0;  
+        }
+        .ico-left:hover{
+            transform: scale(0.8) translateX(-10px);
+        }
+        .ico-right{
+            right: 0;
+        }
+        .ico-right:hover{
+            transform: scale(0.8) translateX(10px);
         }
     </style>
 </head>
 <body>
-    <div>
+    <div class="container">
         <img src="./image/tiger.jpg" class="image">
+        <img src="left-arrow.png" class= "ico-action ico-left" onclick="prev()"/>
+        <img src="right-arrow.png" class= "ico-action ico-right" onclick="next()"/>
     </div>
 </body>
 </html>
